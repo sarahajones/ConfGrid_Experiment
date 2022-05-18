@@ -1,0 +1,293 @@
+.screen {
+    position: relative;
+    width: 1000px;
+    height: 100vh;
+    overflow: hidden;
+}
+
+
+.gameboard {
+    position: relative;
+    background-color: skyblue;
+    background-image: linear-gradient(#2db3ea, #012d01);
+    width: 1200px;
+    height: 500px;
+    align-content: center;
+    margin-top: 10vh;
+    overflow: hidden;
+}
+
+.fish{
+    --backgroundColor: background-color;
+    --fishSize: 400px;
+    --screenSize: 1400px;
+    --marginSize: --screenSize - --fishSize;
+    --halfMargin: --marginSize/2;
+    position: relative;
+    transform: translate(0%, 50%);
+    background-image: linear-gradient(to right, var(--backgroundColor) 0%, whitesmoke 100%);
+    height: 200px;
+    width: var(--fishSize);
+    left: 100%;
+    margin-right:auto;
+    border-radius: 50%;
+    animation: stay
+
+}
+
+.fish .eye{
+    position: absolute;
+    top: 30%;
+    left: 20%;
+    width: 10px;
+    height: 15px;
+    background: white;
+    border-top-left-radius: 40%;
+    border-bottom-left-radius: 40%;
+
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+
+    transform: rotate(35deg);
+}
+
+.fish .fin{
+    position: absolute;
+    top: 25%;
+    left: 35%;
+    width: 43%;
+    height: 26%;
+    background: dimgrey;
+    border-top-left-radius: 40%;
+    border-bottom-left-radius: 40%;
+
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    z-index:1;
+    transform: rotate(0deg);
+}
+
+.fish .tail {
+    --tailsize: 50px;
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 15%;
+    left: 95%;
+    border-top: var(--tailsize) solid transparent;
+    border-bottom: var(--tailsize) solid transparent;
+    border-right: var(--tailsize) dimgrey solid;
+    z-index: 1;
+}
+
+
+
+#jspsych-quickfire-btngroup{
+    height: 40px
+}
+#confidence{
+    height: 265px;
+}
+
+#experiment_btn {
+    background-color:rgba(228, 253,225, 1);
+}
+
+.experiment-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    border: 0;
+    border-radius: 20px;
+    padding: 1.5vmax;
+    font-family: europa, Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-weight: bolder;
+    cursor: pointer;
+    user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    animation: glowy-box 1.5s infinite alternate;
+    width: 8vmax;
+    margin-block-start: 20px;
+    margin: 5vh auto;
+    margin-left: 3vmax;
+    margin-right: 3vmax;
+    background-color:rgba(228, 253,225, 1);
+    color: black;
+    font-size: 1.5vmax;
+}
+
+.experiment-btn:hover, .button.experiment-btn:hover {
+    background-color:rgba(228, 253,225, .7);
+    animation: glowy-box 1.5s infinite alternate;
+}
+
+.confirm {
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    border: 0;
+    border-radius: 20px;
+    padding: 1.5vmax;
+    font-family: europa, Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-weight: bolder;
+    cursor: pointer;
+    user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    animation: glowy-box 1.5s infinite alternate;
+    width: 8vmax;
+    margin: 5vh auto;
+    margin-left: 3vmax;
+    margin-right: 3vmax;
+    background-color:rgba(228, 253,225, 1);
+    color: black;
+    font-size: 1.5vmax;
+}
+
+.banner {
+    padding-top: 250px;
+    align-content: inherit;
+    font-family: fishFont;
+    font-size: 80px;
+    line-height: 40px;
+    letter-spacing: 5px;
+}
+
+.splashbanner {
+    padding: 20px;
+    font-family: fishFont;
+    font-size: 80px;
+    line-height: 5em;
+    letter-spacing: 7.5px;
+    animation: blinking 1.5s  infinite
+}
+
+.slider_area{
+    display: flex;
+}
+.slider{
+    display: flex;
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    margin-top: 15px;
+    width: 100%; /* Full-width */
+    height: 25px; /* Specified height */
+    background: #d3d3d3; /* Grey background */
+    position: relative;
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+
+}
+
+.slider:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+    /
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: #4CAF50; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: #4CAF50; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+#confidenceQuestion {
+    font-size: x-large;
+    font-family: europa, Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: white;
+    line-height: 1.2em;
+    padding: 5px;
+}
+
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+        -webkit-transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(1rem);
+        -webkit-transform: translateY(1rem);
+    }
+
+    100% {
+        transform: translateY(0);
+        -webkit-transform: translateY(0);
+    }
+}
+
+@font-face{
+    font-family: fishFont;
+
+    src: url("../FindetNemo-KVxD.ttf");
+}
+@keyframes glowy-box {
+    from {
+        box-shadow: 0vmin 0vmin 1.3vmin white;
+    }
+    to {
+        box-shadow: 0vmin 0vmin 2vmin white;
+    }
+}
+
+@keyframes blinking {
+    0%{opacity: 0;}
+    50%{opacity: .5;}
+    100%{opacity: 1;}
+}
+
+
+@keyframes color_change {
+    to { background-color: saddlebrown; }
+}
+
+@keyframes stay {
+
+}
+
+@keyframes hides {
+    to {
+        transition-delay: 3s;
+        opacity: 0;
+    }
+}
+
+@keyframes vanish {
+    to {
+        transition-delay: 0s;
+        opacity: 0;
+    }
+}
+/* Swim Animation */
+@keyframes swim {
+    0%{left: 100%}
+    100%{left: calc(0% + (var(--fishSize)/2))}
+}
