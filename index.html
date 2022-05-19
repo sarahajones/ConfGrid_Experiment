@@ -81,31 +81,26 @@
 
     //setting up size variable, x-axis, 3 groupings, small medium and large.
     const size_options = ['small', 'medium', 'large'];
-
-    //setting up color options, set 3 , red -blue-purple (will be a spectrum).
+    //setting up color options, y-axis,  set of 3 , red-blue-purple (will be a spectrum).
     const color_options = [ 'darkred', 'rebeccapurple', 'steelblue'];
-
     // define distribution types
     const distribution = ['invasive', 'native']
 
     //define grid boxes based on size, color, and distribution type
-    let box_1_1 = [size_options[1], color_options[1], distribution[1]]; //invasive
-    let box_2_1 = [size_options[2], color_options[1], distribution[1]]; //invasive
-    let box_3_1 = [size_options[3], color_options[1], distribution[1]]; //invasive
-    let box_1_2 = [size_options[1], color_options[2], distribution[1]]; //invasive
-    let box_2_2 = [size_options[2], color_options[2], distribution[2]]; //native
-    let box_3_2 = [size_options[3], color_options[2], distribution[2]]; //native
-    let box_1_3 = [size_options[1], color_options[3], distribution[1]]; //invasive
-    let box_2_3 = [size_options[2], color_options[3], distribution[2]]; //native
-    let box_3_3 = [size_options[3], color_options[3], distribution[2]]; //native
+    const distribution_corner = [
+        {name: 'box2_2', value: 400, size: size_options[2], type: distribution[2], color: color_options[2]},
+        {name: 'box2_3', value: 400, size: size_options[2], type: distribution[2], color: color_options[3]},
+        {name: 'box3_2', value: 600, size: size_options[3], type: distribution[2], color: color_options[2]},
+        {name: 'box3_3', value: 600, size: size_options[3], type: distribution[2], color: color_options[3]}
+    ];
 
-    let grid  = [box_1_1, box_1_2, box_1_3, box_2_1, box_2_2, box_2_3, box_3_1, box_3_2, box_3_3];
-
-
-    //define size fish
-    let smallsize = generateTestSizes(200,400, 5);
-    let mediumsize = generateTestSizes(400,600, 5);
-    let bigsize = generateTestSizes(600, 800, 5);
+    const distribution_L = [
+        {name: 'box1_1', value: 200, size: size_options[1], type: distribution[1], color: color_options[1]},
+        {name: 'box2_1', value: 200, size: size_options[1], type: distribution[1], color: color_options[1]},
+        {name: 'box3_1', value: 200, size: size_options[1], type: distribution[1], color: color_options[1]},
+        {name: 'box1_2', value: 400, size: size_options[2], type: distribution[1], color: color_options[2]},
+        {name: 'box1_3', value: 600, size: size_options[3], type: distribution[1], color: color_options[3]}
+    ];
 
     /*BLOCK BY BLOCK DEFINIITIONS*/
     //PRE-TRAINING BLOCK
@@ -119,59 +114,48 @@
 
     //GAME BLOCK 1
     //BLOCK 1 TRAINING TRIALS
-    const fish_train_count1 = catch_number / grid.length; // create deck count for fish catches
-    const fish_train_stimuli1 = shuffle_shoe(grid, fish_train_count1); // shuffle deck
-
-
-    //BLOCK 1 TEST TRIALS
-    const fish_deck_count1 = catch_number / distribution1.length; // create deck count for fish catches
-    const fish_stimuli1 = shuffle_shoe(distribution1, fish_deck_count1); // shuffle deck
-    //native_fish
-    for(let i = 1; i <= grid.length; i++){
-        if(grid.distribution[i])
-
-
-
-            }
-    //native_fish
-    let box2_2 = generateTestSizes(400,600, 5);
-    let smallbin2_2 = generateTestSizes(midline - 60, midline - 20, (fish_stimuli1.length / 10));
-    let smallbin2_3 = generateTestSizes(midline - 100, midline - 60, (fish_stimuli1.length / 10));
-    let smallbin2_4 = generateTestSizes(midline - 140, midline - 100, (fish_stimuli1.length / 10));
-    let smallbin2_5 = generateTestSizes(midline - 180, midline - 140, (fish_stimuli1.length / 10));
-    let smallbin2_6 = generateTestSizes(midline - 400, midline - 180, (fish_stimuli1.length / 20));
-    let small_test_fish2 = smallbin2_1.concat(smallbin2_2, smallbin2_3, smallbin2_4, smallbin2_5, smallbin2_6);
-    //big_size fish
-    let bigbin2_1 = generateTestSizes(midline - 20, midline + 20, (fish_stimuli1.length / 10) * .5); // mid-bracket - 330-370 10% 5
-    let bigbin2_7 = generateTestSizes(midline + 20, midline + 60, (fish_stimuli1.length / 10) ); // one right - 370 -410 10% 8
-    let bigbin2_8 = generateTestSizes(midline + 60, midline + 100, (fish_stimuli1.length / 10) ); // two left - 410-450 10% 9
-    let bigbin2_9 = generateTestSizes(midline + 100, midline + 140, (fish_stimuli1.length / 10) ); // three left = 450-490 10% 10
-    let bigbin2_10 = generateTestSizes(midline + 140, midline + 180, (fish_stimuli1.length / 10) ); // four left 490-530 10% 10
-    let bigbin2_11 = generateTestSizes(midline + 180, midline + 400, (fish_stimuli1.length / 20) ); // more right  530-790 5% 5
-    let big_test_fish2 = bigbin2_1.concat(bigbin2_7, bigbin2_8, bigbin2_9, bigbin2_10, bigbin2_11);
-
-
-    if(distribution1[bigMean1].name === "NATIVE"){
-        var invasive_fish_1 = shuffle(small_test_fish1);
-        var native_fish_1= shuffle(big_test_fish1);
-    } else {
-        var invasive_fish_1 = shuffle(big_test_fish1);
-        var native_fish_1= shuffle(small_test_fish1);
+    let native_fish_train1 = [];
+    for (let i = 1; i <= distribution_corner.length; i++) {
+        let new_fish = {
+            size: generateTestSizes(distribution_corner[i].value, distribution_corner[i].value + 200, ((train_number/2)/4)),
+            color: distribution_corner[i].color,
+            name: distribution_corner[i].name
+        }
+        native_fish_train1 = native_fish_train1.concat(new_fish)
     }
 
-    let fish1 = fish_stimuli1.map(s => {
-        let l
-        if (/NATIVE/i.test(s.name)) {
-            l= native_fish_1.pop();
-        } else {
-            l = invasive_fish_1.pop();
+    let invasive_fish_train1 = [];
+    for (let i = 1; i <= distribution_L.length; i++) {
+        let new_fish = {
+            size: generateTestSizes(distribution_L[i].value, distribution_L[i].value + 200, ((train_number/2)/5)),
+            color: distribution_L[i].color,
+            name: distribution_L[i].name
         }
-        return{
-            stimulus: s,
-            size:l
-        }
-    });
+        invasive_fish_train1 = invasive_fish_train1.concat(new_fish)
+    }
+    let fish1 = shuffle(native_fish_train1.concat(invasive_fish_train1))
 
+    //BLOCK 1 TEST TRIALS
+    let native_fish_1 = [];
+    for (let i = 1; i <= distribution_corner.length; i++) {
+            let new_fish = {
+                size: generateTestSizes(distribution_corner[i].value, distribution_corner[i].value + 200, ((catch_number/2)/4)),
+                color: distribution_corner[i].color,
+                name: distribution_corner[i].name
+            }
+       native_fish_1 = native_fish_1.concat(new_fish)
+    }
+
+    let invasive_fish_1 = [];
+    for (let i = 1; i <= distribution_L.length; i++) {
+        let new_fish = {
+            size: generateTestSizes(distribution_L[i].value, distribution_L[i].value + 200, ((catch_number/2)/5)),
+            color: distribution_L[i].color,
+            name: distribution_L[i].name
+        }
+        invasive_fish_1 = invasive_fish_1.concat(new_fish)
+    }
+    let fish_stimuli1 = shuffle(native_fish_1.concat(invasive_fish_1))
 
     //GAME BLOCK 2
 
@@ -394,9 +378,6 @@
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //BLOCK1 TEST TRIALS//
     const block1_timeline = [];
-
-
-
 
     fish1.forEach(s => {
         block1_timeline.push({
