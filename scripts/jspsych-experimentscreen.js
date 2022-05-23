@@ -139,7 +139,7 @@ jsPsych.plugins['jspsych-experimentscreen'] = function () {
         fish.id = "fish";
         fish.classList.add('fish');
         fish.style.width = `${trial.size}px`; //this is the key experimental variable
-        fish.style.backgroundColor = `${trial.fish_color}`;//this is a blockwise color change to make the blocks more distinct.
+        fish.style.backgroundColor = "rgb((trial.fish_color*255), 0, (1-trial.fish_color)*255)"
         fish.style.left = ((trial.canvasSize - trial.size)/2).toString() + 'px';
         fish.style.opacity = `100`;
         canvas.appendChild(fish);
