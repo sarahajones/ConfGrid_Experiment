@@ -134,12 +134,20 @@ jsPsych.plugins['jspsych-experimentscreen'] = function () {
         experiment_screen.appendChild(canvas);
 
 
+
         //add fish and fish elements
         var fish = document.createElement("div");
         fish.id = "fish";
         fish.classList.add('fish');
+
+        //set the 1st dimension of the stimulus
         fish.style.width = `${trial.size}px`; //this is the key experimental variable
-        fish.style.backgroundColor = "rgb((trial.fish_color*255), 0, (1-trial.fish_color)*255)"
+        //set the 2nd dimension of the stimulus
+        var r = trial.fish_color*255;
+        var b = (1-trial.fish_color)*255;
+        fish.style.backgroundColor = `rgb(`${r}`, 0, `${b}`, 1)`
+
+
         fish.style.left = ((trial.canvasSize - trial.size)/2).toString() + 'px';
         fish.style.opacity = `100`;
         canvas.appendChild(fish);
