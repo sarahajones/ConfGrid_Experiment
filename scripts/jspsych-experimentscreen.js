@@ -1,5 +1,5 @@
 
-jsPsych.plugins['jspsych-experimentscreen'] = function () {
+jsPsych.plugins['jspsych-experimentscreen'] = (function () {
 
     var plugin = {};
 
@@ -95,7 +95,7 @@ jsPsych.plugins['jspsych-experimentscreen'] = function () {
 
         //update the response variables
         const response = {
-            stimulus: trial.fish_class,
+            stimulus: trial.fish_class, //what grid box
             trial_type: trial.trial_type,
             distribution_name: trial.distribution_name, //native or invasive
             fish_color: trial.fish_color, //color val that the rgb value will be calculated with
@@ -141,10 +141,8 @@ jsPsych.plugins['jspsych-experimentscreen'] = function () {
         //set the 2nd dimension of the stimulus
         var r = trial.fish_color*255;
         var b = (1-trial.fish_color)*255;
-        fish.style.backgroundColor = `rgb(`${r}`, 0, `${b}`, 1)`;
-
+        fish.style.backgroundColor = `rgb(${r}, 0, ${b})`;
         response.color =  fish.style.backgroundColor;
-
 
         fish.style.left = ((trial.canvasSize - trial.size)/2).toString() + 'px';
         fish.style.opacity = `100`;
@@ -219,7 +217,6 @@ jsPsych.plugins['jspsych-experimentscreen'] = function () {
 
         }
 
-
         function afterResponse(choice) {
             // remove fish from screen
             fish.style.animationName = `vanish`;
@@ -242,7 +239,7 @@ jsPsych.plugins['jspsych-experimentscreen'] = function () {
             response.button_label = trial.choices[choice];
 
             //figure out scoring
-            if (/NATIVE/i.test(trial.fish_class)){
+            if (/native/i.test(trial.distribution_name)){
                 if (response.button_label === 'Return'){
                     response.correct = 1;
                     response.incorrect = 0;
@@ -252,7 +249,7 @@ jsPsych.plugins['jspsych-experimentscreen'] = function () {
                     response.incorrect = 1;
                     response.coins = -3;
                 }
-            } else if(/INVASIVE/i.test(trial.fish_class)){
+            } else if(/invasive/i.test(trial.distribution_name)){
                 if (response.button_label === 'Catch'){
                     response.correct = 1;
                     response.incorrect = 0;
@@ -373,4 +370,5 @@ jsPsych.plugins['jspsych-experimentscreen'] = function () {
 
     return plugin;
 
-}();
+})
+();
