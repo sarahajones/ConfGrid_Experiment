@@ -97,13 +97,10 @@ jsPsych.plugins['jspsych-experimentscreen'] = function () {
         const response = {
             stimulus: trial.fish_class,
             trial_type: trial.trial_type,
-            distribution_mean: trial.distribution_info.mean,
-            distribution_variance: trial.distribution_info.variance,
-            distribution_std: trial.distribution_info.standardDeviation,
-            distribution_name: trial.distribution_name,
-            fish_color: trial.fish_color,
-            fish_size: trial.size,
-            distance_to_bound: Math.abs(500 - trial.size),
+            distribution_name: trial.distribution_name, //native or invasive
+            fish_color: trial.fish_color, //color val that the rgb value will be calculated with
+            fish_size: trial.size, //size of fish based on grid box
+            grid_location: trial.distribution_info, //L or corner
             start_time: performance.now(),
             response_time: null,
             confidence_response_time: null,
@@ -122,7 +119,7 @@ jsPsych.plugins['jspsych-experimentscreen'] = function () {
         var experiment_screen = document.createElement("div");
         experiment_screen.id = "jspsych-experimentscreen";
         experiment_screen.classList.add('screen');
-        if (trial.confidence_trial == true){
+        if (trial.confidence_trial === true){
             experiment_screen.style.marginTop = `${2}vh`
         }
         display_element.appendChild(experiment_screen);
@@ -132,7 +129,6 @@ jsPsych.plugins['jspsych-experimentscreen'] = function () {
         canvas.id = "jspsych-gameboard";
         canvas.classList.add('gameboard');
         experiment_screen.appendChild(canvas);
-
 
 
         //add fish and fish elements
@@ -145,7 +141,9 @@ jsPsych.plugins['jspsych-experimentscreen'] = function () {
         //set the 2nd dimension of the stimulus
         var r = trial.fish_color*255;
         var b = (1-trial.fish_color)*255;
-        fish.style.backgroundColor = `rgb(`${r}`, 0, `${b}`, 1)`
+        fish.style.backgroundColor = `rgb(`${r}`, 0, `${b}`, 1)`;
+
+        response.color =  fish.style.backgroundColor;
 
 
         fish.style.left = ((trial.canvasSize - trial.size)/2).toString() + 'px';
@@ -273,7 +271,7 @@ jsPsych.plugins['jspsych-experimentscreen'] = function () {
                 btns[i].setAttribute('disabled', 'disabled');
             }
 
-            display_element.canvas = ''
+            display_element.canvas = '';
 
             jsPsych.pluginAPI.clearAllTimeouts();
 

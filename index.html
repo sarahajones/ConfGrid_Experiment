@@ -102,7 +102,7 @@
         {name: 'box1_3', value: 600, size: size_options[2], type: distribution[0], color: color_options[2]}
     ];
 
-    /*BLOCK BY BLOCK DEFINIITIONS*/
+    /*BLOCK BY BLOCK DEFINITIONS*/
     //PRE-TRAINING BLOCK
     train1_stimuli = [
         'images/training_fish_native.png',
@@ -114,278 +114,456 @@
 
     //GAME BLOCK 1
     //BLOCK 1 TRAINING TRIALS
-    let colorVal = [];
-    let val = [];
     let native_fish_train1 = [];
-    for (let i = 0; i <= distribution_corner.length -1; i++) {
-
-        let x = distribution_corner[i].value
-        let y = distribution_corner[i].color
-
-        for (let j = 0; j <= ((train_number/2)/4); j++) {
+    for (let i = 0; i <= (distribution_corner.length-1); i++) {
+        let colorVal = [];
+        let val = [];
+        let x = distribution_corner[i].value;
+        let y = distribution_corner[i].color;
+        for (let j = 0; j <= (((train_number/2)/4)-1); j++) {
             if(y === "darkred"){
-                val[j] = generateTestSizes(66.666, 99.999, 1)
+                val[j] = generateTestSizes(66.666, 99.999, 1);
                 colorVal = colorVal.concat(val[j]*0.01)
             } else if(y === "rebeccapurple"){
-                val[j] = generateTestSizes(33.333, 66.666, 1)
+                val[j] = generateTestSizes(33.333, 66.666, 1);
                 colorVal = colorVal.concat(val[j]*0.01)}
             else if(y === "steelblue"){
-                val[j] = generateTestSizes(0, 33.333, 1)
+                val[j] = generateTestSizes(0, 33.333, 1);
                 colorVal = colorVal.concat(val[j]*0.01)}
-
             let new_fish = {
                 size: generateTestSizes(x, x + 200, 1),
                 color: colorVal[j],
                 name: distribution_corner[i].name,
                 distribution_type: "native",
                 location: "corner"
-            }
+            };
             native_fish_train1 = native_fish_train1.concat(new_fish)
         }
     }
 
     let invasive_fish_train1 = [];
-    for (let i = 0; i <= distribution_L.length-1; i++) {
-        let x = distribution_L[i].value
-        for (let j = 1; j <= ((train_number/2)/5); j++) {
+    for (let i = 0; i <= (distribution_L.length-1); i++) {
+        let colorVal = [];
+        let val = [];
+        let x = distribution_L[i].value;
+        let y = distribution_L[i].color;
+        for (let j = 0; j <= (((train_number/2)/5)-1); j++) {
+            if(y === "darkred"){
+                val[j] = generateTestSizes(66.666, 99.999, 1);
+                colorVal = colorVal.concat(val[j]*0.01)
+            } else if(y === "rebeccapurple"){
+                val[j] = generateTestSizes(33.333, 66.666, 1);
+                colorVal = colorVal.concat(val[j]*0.01)}
+            else if(y === "steelblue"){
+                val[j] = generateTestSizes(0, 33.333, 1);
+                colorVal = colorVal.concat(val[j]*0.01)}
             let new_fish = {
                 size: generateTestSizes(x, x + 200, 1),
-                color: distribution_L[i].color,
+                color: colorVal[j],
                 name: distribution_L[i].name,
                 distribution_type: "invasive",
                 location: "L"
-            }
+            };
             invasive_fish_train1 = invasive_fish_train1.concat(new_fish)
         }
     }
-    let fish_train1 = shuffle(native_fish_train1.concat(invasive_fish_train1))
+    let fish_train1 = shuffle(native_fish_train1.concat(invasive_fish_train1));
+
 
     //BLOCK 1 TEST TRIALS
     let native_fish_1 = [];
-    for (let i = 0; i <= distribution_corner.length-1; i++) {
-        let x = distribution_corner[i].value
-        for (let j = 1; j <= ((catch_number/2)/4); j++) {
+    for (let i = 0; i <= (distribution_corner.length-1); i++) {
+        let colorVal = [];
+        let val = [];
+        let x = distribution_corner[i].value;
+        let y = distribution_corner[i].color;
+        for (let j = 0; j <= (((catch_number/2)/4)-1); j++) {
+            if(y === "darkred"){
+                val[j] = generateTestSizes(66.666, 99.999, 1);
+                colorVal = colorVal.concat(val[j]*0.01)
+            } else if(y === "rebeccapurple"){
+                val[j] = generateTestSizes(33.333, 66.666, 1);
+                colorVal = colorVal.concat(val[j]*0.01)}
+            else if(y === "steelblue"){
+                val[j] = generateTestSizes(0, 33.333, 1);
+                colorVal = colorVal.concat(val[j]*0.01)}
             let new_fish = {
                 size: generateTestSizes(x, x + 200, 1),
-                color: distribution_corner[i].color,
+                color: colorVal[j],
                 name: distribution_corner[i].name,
                 distribution_type: "native",
                 location: "corner"
-            }
+            };
             native_fish_1 = native_fish_1.concat(new_fish)
         }
     }
 
     let invasive_fish_1 = [];
-    for (let i = 0; i <= distribution_L.length-1; i++) {
-        let x = distribution_L[i].value
-        for (let j = 1; j <= ((catch_number/2)/5); j++){
+    for (let i = 0; i <= (distribution_L.length-1); i++) {
+        let colorVal = [];
+        let val = [];
+        let x = distribution_L[i].value;
+        let y = distribution_L[i].color;
+        for (let j = 0; j <= (((catch_number/2)/5)-1); j++) {
+            if(y === "darkred"){
+                val[j] = generateTestSizes(66.666, 99.999, 1);
+                colorVal = colorVal.concat(val[j]*0.01)
+            } else if(y === "rebeccapurple"){
+                val[j] = generateTestSizes(33.333, 66.666, 1);
+                colorVal = colorVal.concat(val[j]*0.01)}
+            else if(y === "steelblue"){
+                val[j] = generateTestSizes(0, 33.333, 1);
+                colorVal = colorVal.concat(val[j]*0.01)}
             let new_fish = {
                 size: generateTestSizes(x, x + 200, 1),
-                color: distribution_L[i].color,
+                color: colorVal[j],
                 name: distribution_L[i].name,
                 distribution_type: "invasive",
                 location: "L"
-            }
+            };
             invasive_fish_1 = invasive_fish_1.concat(new_fish)
         }
     }
-    let fish_stimuli1 = shuffle(native_fish_1.concat(invasive_fish_1))
+    let fish_stimuli1 = shuffle(native_fish_1.concat(invasive_fish_1));
 
     //GAME BLOCK 2
     //BLOCK 2 TRAINING TRIALS
     let native_fish_train2 = [];
-    for (let i = 0; i <= distribution_corner.length -1; i++) {
-        let x = distribution_corner[i].value
-        for (let j = 1; j <= ((train_number/2)/4); j++) {
+    for (let i = 0; i <= (distribution_corner.length-1); i++) {
+        let colorVal = [];
+        let val = [];
+        let x = distribution_corner[i].value;
+        let y = distribution_corner[i].color;
+        for (let j = 0; j <= (((train_number/2)/4)-1); j++) {
+            if(y === "darkred"){
+                val[j] = generateTestSizes(66.666, 99.999, 1);
+                colorVal = colorVal.concat(val[j]*0.01)
+            } else if(y === "rebeccapurple"){
+                val[j] = generateTestSizes(33.333, 66.666, 1);
+                colorVal = colorVal.concat(val[j]*0.01)}
+            else if(y === "steelblue"){
+                val[j] = generateTestSizes(0, 33.333, 1);
+                colorVal = colorVal.concat(val[j]*0.01)}
             let new_fish = {
                 size: generateTestSizes(x, x + 200, 1),
-                color: distribution_corner[i].color,
+                color: colorVal[j],
                 name: distribution_corner[i].name,
                 distribution_type: "native",
                 location: "corner"
-            }
+            };
             native_fish_train2 = native_fish_train2.concat(new_fish)
         }
     }
 
     let invasive_fish_train2 = [];
-    for (let i = 0; i <= distribution_L.length-1; i++) {
-        let x = distribution_L[i].value
-        for (let j = 1; j <= ((train_number/2)/5); j++) {
+    for (let i = 0; i <= (distribution_L.length-1); i++) {
+        let colorVal = [];
+        let val = [];
+        let x = distribution_L[i].value;
+        let y = distribution_L[i].color;
+        for (let j = 0; j <= (((train_number/2)/5)-1); j++) {
+            if(y === "darkred"){
+                val[j] = generateTestSizes(66.666, 99.999, 1);
+                colorVal = colorVal.concat(val[j]*0.01)
+            } else if(y === "rebeccapurple"){
+                val[j] = generateTestSizes(33.333, 66.666, 1);
+                colorVal = colorVal.concat(val[j]*0.01)}
+            else if(y === "steelblue"){
+                val[j] = generateTestSizes(0, 33.333, 1);
+                colorVal = colorVal.concat(val[j]*0.01)}
             let new_fish = {
                 size: generateTestSizes(x, x + 200, 1),
-                color: distribution_L[i].color,
+                color: colorVal[j],
                 name: distribution_L[i].name,
                 distribution_type: "invasive",
                 location: "L"
-            }
+            };
             invasive_fish_train2 = invasive_fish_train2.concat(new_fish)
         }
     }
-    let fish_train2 = shuffle(native_fish_train2.concat(invasive_fish_train2))
+    let fish_train2 = shuffle(native_fish_train2.concat(invasive_fish_train2));
 
     //BLOCK 2 TEST TRIALS
     let native_fish_2 = [];
-    for (let i = 0; i <= distribution_corner.length-1; i++) {
-        let x = distribution_corner[i].value
-        for (let j = 1; j <= ((catch_number/2)/4); j++) {
+    for (let i = 0; i <= (distribution_corner.length-1); i++) {
+        let colorVal = [];
+        let val = [];
+        let x = distribution_corner[i].value;
+        let y = distribution_corner[i].color;
+        for (let j = 0; j <= (((catch_number/2)/4)-1); j++) {
+            if(y === "darkred"){
+                val[j] = generateTestSizes(66.666, 99.999, 1);
+                colorVal = colorVal.concat(val[j]*0.01)
+            } else if(y === "rebeccapurple"){
+                val[j] = generateTestSizes(33.333, 66.666, 1);
+                colorVal = colorVal.concat(val[j]*0.01)}
+            else if(y === "steelblue"){
+                val[j] = generateTestSizes(0, 33.333, 1);
+                colorVal = colorVal.concat(val[j]*0.01)}
             let new_fish = {
                 size: generateTestSizes(x, x + 200, 1),
-                color: distribution_corner[i].color,
+                color: colorVal[j],
                 name: distribution_corner[i].name,
                 distribution_type: "native",
                 location: "corner"
-            }
+            };
             native_fish_2 = native_fish_2.concat(new_fish)
         }
     }
 
     let invasive_fish_2 = [];
-    for (let i = 0; i <= distribution_L.length-1; i++) {
-        let x = distribution_L[i].value
-        for (let j = 1; j <= ((catch_number/2)/5); j++){
+    for (let i = 0; i <= (distribution_L.length-1); i++) {
+        let colorVal = [];
+        let val = [];
+        let x = distribution_L[i].value;
+        let y = distribution_L[i].color;
+        for (let j = 0; j <= (((catch_number/2)/5)-1); j++) {
+            if(y === "darkred"){
+                val[j] = generateTestSizes(66.666, 99.999, 1);
+                colorVal = colorVal.concat(val[j]*0.01)
+            } else if(y === "rebeccapurple"){
+                val[j] = generateTestSizes(33.333, 66.666, 1);
+                colorVal = colorVal.concat(val[j]*0.01)}
+            else if(y === "steelblue"){
+                val[j] = generateTestSizes(0, 33.333, 1);
+                colorVal = colorVal.concat(val[j]*0.01)}
             let new_fish = {
                 size: generateTestSizes(x, x + 200, 1),
-                color: distribution_L[i].color,
+                color: colorVal[j],
                 name: distribution_L[i].name,
                 distribution_type: "invasive",
                 location: "L"
-            }
+            };
             invasive_fish_2 = invasive_fish_2.concat(new_fish)
         }
     }
-    let fish_stimuli2 = shuffle(native_fish_2.concat(invasive_fish_2))
+    let fish_stimuli2 = shuffle(native_fish_2.concat(invasive_fish_2));
 
     //GAME BLOCK 3
     //BLOCK 3 TRAINING TRIALS
     let native_fish_train3 = [];
-    for (let i = 0; i <= distribution_corner.length -1; i++) {
-        let x = distribution_corner[i].value
-        for (let j = 1; j <= ((train_number/2)/4); j++) {
+    for (let i = 0; i <= (distribution_corner.length-1); i++) {
+        let colorVal = [];
+        let val = [];
+        let x = distribution_corner[i].value;
+        let y = distribution_corner[i].color;
+        for (let j = 0; j <= (((train_number/2)/4)-1); j++) {
+            if(y === "darkred"){
+                val[j] = generateTestSizes(66.666, 99.999, 1);
+                colorVal = colorVal.concat(val[j]*0.01)
+            } else if(y === "rebeccapurple"){
+                val[j] = generateTestSizes(33.333, 66.666, 1);
+                colorVal = colorVal.concat(val[j]*0.01)}
+            else if(y === "steelblue"){
+                val[j] = generateTestSizes(0, 33.333, 1);
+                colorVal = colorVal.concat(val[j]*0.01)}
             let new_fish = {
                 size: generateTestSizes(x, x + 200, 1),
-                color: distribution_corner[i].color,
+                color: colorVal[j],
                 name: distribution_corner[i].name,
                 distribution_type: "native",
                 location: "corner"
-            }
+            };
             native_fish_train3 = native_fish_train3.concat(new_fish)
         }
     }
 
     let invasive_fish_train3 = [];
-    for (let i = 0; i <= distribution_L.length-1; i++) {
-        let x = distribution_L[i].value
-        for (let j = 1; j <= ((train_number/2)/5); j++) {
+    for (let i = 0; i <= (distribution_L.length-1); i++) {
+        let colorVal = [];
+        let val = [];
+        let x = distribution_L[i].value;
+        let y = distribution_L[i].color;
+        for (let j = 0; j <= (((train_number/2)/5)-1); j++) {
+            if(y === "darkred"){
+                val[j] = generateTestSizes(66.666, 99.999, 1);
+                colorVal = colorVal.concat(val[j]*0.01)
+            } else if(y === "rebeccapurple"){
+                val[j] = generateTestSizes(33.333, 66.666, 1);
+                colorVal = colorVal.concat(val[j]*0.01)}
+            else if(y === "steelblue"){
+                val[j] = generateTestSizes(0, 33.333, 1);
+                colorVal = colorVal.concat(val[j]*0.01)}
             let new_fish = {
                 size: generateTestSizes(x, x + 200, 1),
-                color: distribution_L[i].color,
+                color: colorVal[j],
                 name: distribution_L[i].name,
                 distribution_type: "invasive",
                 location: "L"
-            }
+            };
             invasive_fish_train3 = invasive_fish_train3.concat(new_fish)
         }
     }
-    let fish_train3 = shuffle(native_fish_train3.concat(invasive_fish_train3))
+    let fish_train3 = shuffle(native_fish_train3.concat(invasive_fish_train3));
 
     //BLOCK 3 TEST TRIALS
     let native_fish_3 = [];
-    for (let i = 0; i <= distribution_corner.length-1; i++) {
-        let x = distribution_corner[i].value
-        for (let j = 1; j <= ((catch_number/2)/4); j++) {
+    for (let i = 0; i <= (distribution_corner.length-1); i++) {
+        let colorVal = [];
+        let val = [];
+        let x = distribution_corner[i].value;
+        let y = distribution_corner[i].color;
+        for (let j = 0; j <= (((catch_number/2)/4)-1); j++) {
+            if(y === "darkred"){
+                val[j] = generateTestSizes(66.666, 99.999, 1);
+                colorVal = colorVal.concat(val[j]*0.01)
+            } else if(y === "rebeccapurple"){
+                val[j] = generateTestSizes(33.333, 66.666, 1);
+                colorVal = colorVal.concat(val[j]*0.01)}
+            else if(y === "steelblue"){
+                val[j] = generateTestSizes(0, 33.333, 1);
+                colorVal = colorVal.concat(val[j]*0.01)}
             let new_fish = {
                 size: generateTestSizes(x, x + 200, 1),
-                color: distribution_corner[i].color,
+                color: colorVal[j],
                 name: distribution_corner[i].name,
                 distribution_type: "native",
                 location: "corner"
-            }
+            };
             native_fish_3 = native_fish_3.concat(new_fish)
         }
     }
 
     let invasive_fish_3 = [];
-    for (let i = 0; i <= distribution_L.length-1; i++) {
-        let x = distribution_L[i].value
-        for (let j = 1; j <= ((catch_number/2)/5); j++){
+    for (let i = 0; i <= (distribution_L.length-1); i++) {
+        let colorVal = [];
+        let val = [];
+        let x = distribution_L[i].value;
+        let y = distribution_L[i].color;
+        for (let j = 0; j <= (((catch_number/2)/5)-1); j++) {
+            if(y === "darkred"){
+                val[j] = generateTestSizes(66.666, 99.999, 1);
+                colorVal = colorVal.concat(val[j]*0.01)
+            } else if(y === "rebeccapurple"){
+                val[j] = generateTestSizes(33.333, 66.666, 1);
+                colorVal = colorVal.concat(val[j]*0.01)}
+            else if(y === "steelblue"){
+                val[j] = generateTestSizes(0, 33.333, 1);
+                colorVal = colorVal.concat(val[j]*0.01)}
             let new_fish = {
                 size: generateTestSizes(x, x + 200, 1),
-                color: distribution_L[i].color,
+                color: colorVal[j],
                 name: distribution_L[i].name,
                 distribution_type: "invasive",
                 location: "L"
-            }
+            };
             invasive_fish_3 = invasive_fish_3.concat(new_fish)
         }
     }
-    let fish_stimuli3 = shuffle(native_fish_3.concat(invasive_fish_3))
+    let fish_stimuli3 = shuffle(native_fish_3.concat(invasive_fish_3));
 
     //GAME BLOCK 4
     //BLOCK 4 TRAINING TRIALS
     let native_fish_train4 = [];
-    for (let i = 0; i <= distribution_corner.length -1; i++) {
-        let x = distribution_corner[i].value
-        for (let j = 1; j <= ((train_number/2)/4); j++) {
+    for (let i = 0; i <= (distribution_corner.length-1); i++) {
+        let colorVal = [];
+        let val = [];
+        let x = distribution_corner[i].value;
+        let y = distribution_corner[i].color;
+        for (let j = 0; j <= (((catch_number/2)/4)-1); j++) {
+            if(y === "darkred"){
+                val[j] = generateTestSizes(66.666, 99.999, 1);
+                colorVal = colorVal.concat(val[j]*0.01)
+            } else if(y === "rebeccapurple"){
+                val[j] = generateTestSizes(33.333, 66.666, 1);
+                colorVal = colorVal.concat(val[j]*0.01)}
+            else if(y === "steelblue"){
+                val[j] = generateTestSizes(0, 33.333, 1);
+                colorVal = colorVal.concat(val[j]*0.01)}
             let new_fish = {
                 size: generateTestSizes(x, x + 200, 1),
-                color: distribution_corner[i].color,
+                color: colorVal[j],
                 name: distribution_corner[i].name,
                 distribution_type: "native",
                 location: "corner"
-            }
+            };
             native_fish_train4 = native_fish_train4.concat(new_fish)
         }
     }
 
     let invasive_fish_train4 = [];
-    for (let i = 0; i <= distribution_L.length-1; i++) {
-        let x = distribution_L[i].value
-        for (let j = 1; j <= ((train_number/2)/5); j++) {
+    for (let i = 0; i <= (distribution_L.length-1); i++) {
+        let colorVal = [];
+        let val = [];
+        let x = distribution_L[i].value;
+        let y = distribution_L[i].color;
+        for (let j = 0; j <= (((train_number/2)/5)-1); j++) {
+            if(y === "darkred"){
+                val[j] = generateTestSizes(66.666, 99.999, 1);
+                colorVal = colorVal.concat(val[j]*0.01)
+            } else if(y === "rebeccapurple"){
+                val[j] = generateTestSizes(33.333, 66.666, 1);
+                colorVal = colorVal.concat(val[j]*0.01)}
+            else if(y === "steelblue"){
+                val[j] = generateTestSizes(0, 33.333, 1);
+                colorVal = colorVal.concat(val[j]*0.01)}
             let new_fish = {
                 size: generateTestSizes(x, x + 200, 1),
-                color: distribution_L[i].color,
+                color: colorVal[j],
                 name: distribution_L[i].name,
                 distribution_type: "invasive",
                 location: "L"
-            }
+            };
             invasive_fish_train4 = invasive_fish_train4.concat(new_fish)
         }
     }
-    let fish_train4 = shuffle(native_fish_train4.concat(invasive_fish_train4))
+    let fish_train4 = shuffle(native_fish_train4.concat(invasive_fish_train4));
 
     //BLOCK 4 TEST TRIALS
     let native_fish_4 = [];
-    for (let i = 0; i <= distribution_corner.length-1; i++) {
-        let x = distribution_corner[i].value
-        for (let j = 1; j <= ((catch_number/2)/4); j++) {
+    for (let i = 0; i <= (distribution_corner.length-1); i++) {
+        let colorVal = [];
+        let val = [];
+        let x = distribution_corner[i].value;
+        let y = distribution_corner[i].color;
+        for (let j = 0; j <= (((catch_number/2)/4)-1); j++) {
+            if(y === "darkred"){
+                val[j] = generateTestSizes(66.666, 99.999, 1);
+                colorVal = colorVal.concat(val[j]*0.01)
+            } else if(y === "rebeccapurple"){
+                val[j] = generateTestSizes(33.333, 66.666, 1);
+                colorVal = colorVal.concat(val[j]*0.01)}
+            else if(y === "steelblue"){
+                val[j] = generateTestSizes(0, 33.333, 1);
+                colorVal = colorVal.concat(val[j]*0.01)}
             let new_fish = {
                 size: generateTestSizes(x, x + 200, 1),
-                color: distribution_corner[i].color,
+                color: colorVal[j],
                 name: distribution_corner[i].name,
                 distribution_type: "native",
                 location: "corner"
-            }
+            };
             native_fish_4 = native_fish_4.concat(new_fish)
         }
     }
 
     let invasive_fish_4 = [];
-    for (let i = 0; i <= distribution_L.length-1; i++) {
-        let x = distribution_L[i].value
-        for (let j = 1; j <= ((catch_number/2)/5); j++){
+    for (let i = 0; i <= (distribution_L.length-1); i++) {
+        let colorVal = [];
+        let val = [];
+        let x = distribution_L[i].value;
+        let y = distribution_L[i].color;
+        for (let j = 0; j <= (((catch_number/2)/5)-1); j++) {
+            if(y === "darkred"){
+                val[j] = generateTestSizes(66.666, 99.999, 1);
+                colorVal = colorVal.concat(val[j]*0.01)
+            } else if(y === "rebeccapurple"){
+                val[j] = generateTestSizes(33.333, 66.666, 1);
+                colorVal = colorVal.concat(val[j]*0.01)}
+            else if(y === "steelblue"){
+                val[j] = generateTestSizes(0, 33.333, 1);
+                colorVal = colorVal.concat(val[j]*0.01)}
             let new_fish = {
                 size: generateTestSizes(x, x + 200, 1),
-                color: distribution_L[i].color,
+                color: colorVal[j],
                 name: distribution_L[i].name,
                 distribution_type: "invasive",
                 location: "L"
-            }
+            };
             invasive_fish_4 = invasive_fish_4.concat(new_fish)
         }
     }
-    let fish_stimuli4 = shuffle(native_fish_4.concat(invasive_fish_4))
+    let fish_stimuli4 = shuffle(native_fish_4.concat(invasive_fish_4));
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /* EXPERIMENTAL PAGES */
@@ -651,12 +829,6 @@
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // INTERIM 2 //
     /*Next set of instructions and splash message while loading screen*/
-
-    var splash_2 = {
-        type: "jspsych-splashmessage",
-        trial_type: 'Next',
-        trial_duration: 3750,
-    };
 
     const interim2_timeline = [
         splash_1,
