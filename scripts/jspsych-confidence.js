@@ -3,7 +3,6 @@
  * a jspsych plugin for free response survey questions
  *
  * Josh de Leeuw
- *
  * documentation: docs.jspsych.org
  *
  */

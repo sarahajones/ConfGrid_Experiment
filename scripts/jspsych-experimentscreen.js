@@ -95,10 +95,11 @@ jsPsych.plugins['jspsych-experimentscreen'] = (function () {
 
         //update the response variables
         const response = {
-            stimulus: trial.fish_class, //what grid box
-            trial_type: trial.trial_type,
+            grid_box: trial.fish_class, //what grid box it is
+            trial_type: trial.trial_type, //training or test
             distribution_name: trial.distribution_name, //native or invasive
             fish_color: trial.fish_color, //color val that the rgb value will be calculated with
+            fullColor: null, //this will be the full rgb value
             fish_size: trial.size, //size of fish based on grid box
             grid_location: trial.distribution_info, //L or corner
             start_time: performance.now(),
@@ -142,7 +143,7 @@ jsPsych.plugins['jspsych-experimentscreen'] = (function () {
         var r = trial.fish_color*255;
         var b = (1-trial.fish_color)*255;
         fish.style.backgroundColor = `rgb(${r}, 0, ${b})`;
-        response.color =  fish.style.backgroundColor;
+        response.fullColor =  fish.style.backgroundColor;
 
         fish.style.left = ((trial.canvasSize - trial.size)/2).toString() + 'px';
         fish.style.opacity = `100`;
