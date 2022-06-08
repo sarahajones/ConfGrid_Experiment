@@ -24,8 +24,8 @@ jsPsych.plugins['jspsych-tutorial'] = (function () {
                 'The invasive species are taking over the lakes - they need to be caught and removed. ' +
                 'Your goal is to find fish and check if they are from a native species or an invasive species. </p>' +
                 '<p> The native species should be returned to the water, the invasive species should be caught and removed. ' +
-                'These species will be slightly different in each lake, you will learn about the species of fish in each lake as you arrive. ' +
-                'You will gain points be correctly identifying the fish and responding appropriately.</p>' +
+                'These species will be the same in each lake, and you will review what each type of fish looks like before you enter each lake. ' +
+                'You will then gain points be correctly identifying the fish and responding appropriately.</p>' +
                 '<p> You are aiming to catch the invasive fish and return the native fish.</p>';
             var header_text =
                 '<h2>The following pages will help guide you through the upcoming study, please read them carefully. </h2>'
@@ -90,7 +90,7 @@ jsPsych.plugins['jspsych-tutorial'] = (function () {
         { var tutorial_text =
             '<p> Let\'s see if you can improve your score this time around! ' +
             'Watch the screen carefully again and then try to beat your last score! ' +
-            'Keep an eye on what kind of fish are in the next lake, they may look different this time but the rules remain the same! Good luck!</p>'
+            'The type of fish you encounter will be the same, and the rules remain the same too! Good luck!</p>'
             var header_text =
                 '<h1>Ready for the next round?</h1>'
         }
