@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="386839c7-c65c-4402-89cc-95dba29bfd1a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/jspsych-lastScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/jspsych-lastScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +89,7 @@
       <workItem from="1654686781063" duration="3760000" />
       <workItem from="1655311205240" duration="1751000" />
       <workItem from="1655984364278" duration="610000" />
-      <workItem from="1657019049589" duration="2388000" />
+      <workItem from="1657019049589" duration="2926000" />
     </task>
     <servers />
   </component>
