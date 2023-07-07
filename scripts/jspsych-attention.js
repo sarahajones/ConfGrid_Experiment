@@ -81,7 +81,7 @@ jsPsych.plugins['jspsych-attention'] = (function () {
                 header_text = '<h1>Oh dear!</h1>';
                 trial.tutorial_text = `<p>You answered  <strong>${incorrect}</strong> of the questions incorrectly.</p> 
     <p>As you have already failed to answer the comprehension questions correctly, you will no longer be able to participate in this experiment.</p>
-            <p>Please return your submission in Prolific.</p>`;
+            <p>Please return your submission in Prolific. </p>`;
                 var button_label = '';
 
             }
