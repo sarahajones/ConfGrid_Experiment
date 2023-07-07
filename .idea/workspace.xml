@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="386839c7-c65c-4402-89cc-95dba29bfd1a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/jspsych-lastScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/jspsych-lastScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -90,6 +91,12 @@
       <workItem from="1655311205240" duration="1751000" />
       <workItem from="1655984364278" duration="610000" />
       <workItem from="1657019049589" duration="2926000" />
+      <workItem from="1661618261660" duration="698000" />
+      <workItem from="1664197736246" duration="1134000" />
+      <workItem from="1664201258717" duration="602000" />
+      <workItem from="1664282909565" duration="639000" />
+      <workItem from="1681311718856" duration="80000" />
+      <workItem from="1688741864611" duration="785000" />
     </task>
     <servers />
   </component>
